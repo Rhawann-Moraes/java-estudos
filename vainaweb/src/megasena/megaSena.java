@@ -15,11 +15,37 @@ public class megaSena
 		int [] numerosSorteados = sorteio();
 		
 		exibir("Esses são os seus números escolhidos: ", numerosEscolhidos);
-		exibir("Esses são os seus números sorteados: ", numerosSorteados);
-		
+		exibir("Esses foram os números sorteados: ", numerosSorteados);
+		int acertos = 0;
+		for(int i = 0; i < numerosEscolhidos.length; i++)
+		{
+			for (int j = 0; j < numerosSorteados.length; j++)
+			{
+				if(numerosEscolhidos[i] == numerosSorteados[j])
+				{
+					acertos = acertos + 1;
+				}
+			}
+		}
+		switch(acertos)
+		{
+			case 5:
+			System.out.println("Você acertou " + acertos + " e ganhou um prêmio de 10 mil reais!");
+			break;
+			case 6:
+				System.out.println("Você acertou " + acertos + " e ganhou um prêmio de 50 mil reais!");
+			break;
+			case 7:
+				System.out.println("Você acertou " + acertos + " e ganhou um prêmio de 200 mil reais!");
+			break;
+			default:
+				System.out.println("Numeros de acertos: " + acertos + ". Você não ganhou nenhum prêmio!");
+		}
+			
 		
 		
 	}
+	
 	
 	public static int[] obterNumeros(String mensagem, Scanner scanner)
 	{
